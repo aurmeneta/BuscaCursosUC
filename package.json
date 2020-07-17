@@ -1,0 +1,23 @@
+{
+  "name": "buscacursos-uc",
+  "version": "0.0.1",
+  "description": "Obtener cursos desde buscacursos.uc.cl",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aurmeneta/BuscaCursosUC.git"
+  },
+  "keywords": [
+    "uc",
+    "puc"
+  ],
+  "author": "Andrés Urmeneta Betzhold",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aurmeneta/BuscaCursosUC/issues"
+  },
+  "homepage": "https://github.com/aurmeneta/BuscaCursosUC#readme"
+}
