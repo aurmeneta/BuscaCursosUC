@@ -1,10 +1,10 @@
 {
   "name": "buscacursos-uc",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Obtener cursos desde buscacursos.uc.cl",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node test/test.js"
   },
   "repository": {
     "type": "git",
@@ -19,5 +19,9 @@
   "bugs": {
     "url": "https://github.com/aurmeneta/BuscaCursosUC/issues"
   },
-  "homepage": "https://github.com/aurmeneta/BuscaCursosUC#readme"
+  "homepage": "https://github.com/aurmeneta/BuscaCursosUC#readme",
+  "dependencies": {
+    "axios": "^0.19.2",
+    "cheerio": "^1.0.0-rc.3"
+  }
 }
