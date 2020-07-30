@@ -1,6 +1,6 @@
 {
   "name": "buscacursos-uc",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Obtener cursos desde buscacursos.uc.cl",
   "main": "index.js",
   "scripts": {
@@ -21,7 +21,7 @@
   },
   "homepage": "https://github.com/aurmeneta/BuscaCursosUC#readme",
   "dependencies": {
-    "axios": "^0.19.2",
-    "cheerio": "^1.0.0-rc.3"
+    "cheerio": "^1.0.0-rc.3",
+    "node-fetch": "^2.6.0"
   }
 }
