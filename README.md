@@ -31,11 +31,11 @@ Cada búsqueda retorna un arreglo con los cursos encontrados.
     profesor: [ 'Zegarra Luis', 'Rojas Carlos' ],
     vacantes_disponibles: 3,
     horario: [
-      { tipo: 'CLAS', dia: 'L', hora: 5, sala: 'K203' },
-      { tipo: 'CLAS', dia: 'W', hora: 5, sala: 'K203' },
-      { tipo: 'CLAS', dia: 'J', hora: 5, sala: 'K203' },
-      { tipo: 'AYU', dia: 'V', hora: 1, sala: 'AE102' },
-      { tipo: 'LAB', dia: 'V', hora: 6, sala: 'SIN SALA' }
+      { tipo: 'CLAS', dia: 'L', modulo: 5, sala: 'K203' },
+      { tipo: 'CLAS', dia: 'W', modulo: 5, sala: 'K203' },
+      { tipo: 'CLAS', dia: 'J', modulo: 5, sala: 'K203' },
+      { tipo: 'AYU', dia: 'V', modulo: 1, sala: 'AE102' },
+      { tipo: 'LAB', dia: 'V', modulo: 6, sala: 'SIN SALA' }
     ]
   },
   ...
