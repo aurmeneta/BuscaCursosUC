@@ -1,6 +1,6 @@
 {
   "name": "buscacursos-uc",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Obtener cursos desde buscacursos.uc.cl",
   "main": "index.js",
   "scripts": {

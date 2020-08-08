@@ -12,6 +12,10 @@ ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
 OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE. 
 */
 
+const Curso = require("./lib/Curso");
+const Modulo = require("./lib/Modulo");
+const ChoquesPermitidos = require("./lib/ChoquesPermitidos");
+
 const fetch = require("node-fetch");
 const cheerio = require("cheerio");
 
@@ -37,7 +41,7 @@ function obtenerCursos(url) {
             filas = $('.resultadosRowPar').toArray();
             filas = filas.concat($('.resultadosRowImpar').toArray());
 
-            // Convierte las filas html en objetos.
+            // Convierte las filas html en objetos Curso.
             filas.forEach(fila => {
 
                 // Obtiene las columnas de la fila
@@ -46,11 +50,19 @@ function obtenerCursos(url) {
                 // Obtiene el contenido de cada columna y se lo asigna a la variable correspondiente.
                 let nrc = $(columnas[0]).text().trim();
                 let sigla = $(columnas[1]).text().trim();
+                let permite_retiro = $(columnas[2]).text().trim() === 'SI';
+                let ingles = $(columnas[3]).text().trim() === 'SI';
                 let seccion = parseInt($(columnas[4]).text());
+                let aprobacion_especial = $(columnas[5]).text().trim() === 'SI';
+                let area = $(columnas[6]).text().trim();
+                let formato = $(columnas[7]).text().trim();
+                let categoria = $(columnas[8]).text().trim();
                 let nombre = $(columnas[9]).text().trim();
                 let profesor = $(columnas[10]).text()
                     .split(',')
                     .map(texto => texto.trim());
+                let campus = $(columnas[11]).text().trim();
+                let creditos = parseInt($(columnas[12]).text());
                 let vacantes_disponibles = parseInt($(columnas[14]).text());
 
                 let horario = [];
@@ -86,15 +98,14 @@ function obtenerCursos(url) {
                     dias.forEach(dia => {
                         modulos.forEach(modulo => {
                             // Retorna un objeto para cada día y cada modulo.
-                            horario.push({tipo, dia, hora: modulo, sala, modulo})
+                            horario.push(new Modulo(tipo, dia, modulo, sala, modulo));
                             // El campo 'dia' fue renombrado por 'modulo', pero se incluye para no provocar incompatibilidades.
                         });
                     });
                 });
 
-
-
-                cursos.push({nrc, sigla, seccion, nombre, profesor, vacantes_disponibles, horario})
+                cursos.push(new Curso(nrc, sigla, permite_retiro, ingles, seccion, aprobacion_especial, area, formato,
+                    categoria, nombre, profesor, campus, creditos, vacantes_disponibles, horario));
             });
 
             return cursos;
@@ -118,3 +129,6 @@ exports.obtenerCursos = obtenerCursos;
 exports.buscarSigla = buscarSigla;
 exports.buscarProfesor = buscarProfesor;
 exports.buscarCurso = buscarCurso;
+exports.Curso = Curso;
+exports.Modulo = Modulo;
+exports.ChoquesPermitidos = ChoquesPermitidos;
