@@ -25,7 +25,7 @@ const fetch_config = {
     }
 }
 
-const url_base = "https://cors-anywhere.herokuapp.com/http://buscacursos.uc.cl/?";
+const url_base = "http://api.aurmeneta.cl/buscacursos?";
 
 function obtenerCursos(url) {
     return fetch(url, fetch_config)
