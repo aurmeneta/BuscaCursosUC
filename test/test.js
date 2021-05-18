@@ -2,7 +2,7 @@ const buscacursos = require("../index.js");
 
 let obtenerCursos = buscacursos.obtenerCursos("http://buscacursos.uc.cl/?cxml_semestre=2020-1&cxml_sigla=mat1620");
 
-let buscarSigla = buscacursos.buscarSigla("2020-1", "mat1023");
+let buscarSigla = buscacursos.buscarSigla("2020-1", "mat1620");
 
 let buscarProfesor = buscacursos.buscarProfesor("2020-1", "marta garcia-huidobro");
 
