@@ -4,7 +4,7 @@ const { Curso, Modulo } = buscacursos;
 const periodo = "2021-1"
 
 
-let obtenerCursos = buscacursos.obtenerCursos("http://buscacursos.uc.cl/?cxml_semestre=2020-2&cxml_sigla=mat1620");
+let obtenerCursos = buscacursos.obtenerCursos("https://buscacursos.uc.cl/?cxml_semestre=2020-2&cxml_sigla=mat1620");
 
 let buscarSigla = buscacursos.buscarSigla(periodo, "mat1620");
 
