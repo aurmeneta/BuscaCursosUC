@@ -2,18 +2,17 @@
 Paquete npm para hacer scraping de buscacursos.uc.cl. Permite buscar y obtener un array con cursos de la UC.
 
 # Instalación
-Este paquete no está disponible en los repositorios de NPM. Debes incluirlo directamente desde github.
+Paquete disponible en NPM.
 
-```javascript
-"dependencies": {
-    "buscacursos-uc": "git+https://git@github.com/aurmeneta/BuscaCursosUC"
-}
 ```
+npm install --save @aurmeneta/buscacursos-uc
+```
+
 # Uso
 Incluye el paquete en tu proyecto y realiza la búsqueda.
 
 ```javascript
-const buscaCursos = require("buscacursos-uc");
+const buscaCursos = require("@aurmeneta/buscacursos-uc");
 
 let porNombre = await buscaCursos.buscarCurso("2020-1", "Cálculo II");
 let porSigla = await buscaCursos.buscarSigla("2020-1", "MAT1620");
@@ -40,4 +39,15 @@ Cada búsqueda retorna un arreglo con los cursos encontrados.
   },
   ...
 ]
+```
+# CORS
+
+Si la consulta se realiza directamente desde un navegador, esta será rechazada porque, por defecto, la respuesta no incluye los headers para CORS. Para inlcuirlos, se debe especificar como un tercer argumento en las funciones de búsqueda.
+
+```javascript
+const buscaCursos = require("@aurmeneta/buscacursos-uc");
+
+let porNombre = await buscaCursos.buscarCurso("2020-1", "Cálculo II", True);
+let porSigla = await buscaCursos.buscarSigla("2020-1", "MAT1620", True);
+let porProfesor = await buscaCursos.buscarProfesor("2020-1", "Torres", True);
 ```
