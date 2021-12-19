@@ -25,8 +25,7 @@ const fetchConfig = {
     }
 }
 
-const URL_CORS = 'https://api.aurmeneta.cl/?'
-const URL_BASE = 'https://buscacursos.uc.cl/?'
+const URL_BASE = 'https://buscacursos.uc.cl/'
 
 function obtenerCursos(url) {
     return fetch(url, fetchConfig)
@@ -112,27 +111,27 @@ function obtenerCursos(url) {
         })
 }
 
-function buscarSigla(periodo, sigla, cors = false) {
-    if (cors) {
-        return obtenerCursos(URL_CORS + `cxml_semestre=${periodo}&cxml_sigla=${sigla}`)
+function buscarSigla(periodo, sigla, url = undefined) {
+    if (!url) {
+        return obtenerCursos(URL_BASE + `?cxml_semestre=${periodo}&cxml_sigla=${sigla}`)
     } else {
-        return obtenerCursos(URL_BASE + `cxml_semestre=${periodo}&cxml_sigla=${sigla}`)
+        return obtenerCursos(url + `cxml_semestre=${periodo}&cxml_sigla=${sigla}`)
     }
 }
 
-function buscarProfesor(periodo, profesor, cors = false) {
-    if (cors) {
-        return obtenerCursos(URL_CORS + `cxml_semestre=${periodo}&cxml_profesor=${profesor}`)
+function buscarProfesor(periodo, profesor, cors = false, url = undefined) {
+    if (!url) {
+        return obtenerCursos(URL_BASE + `?cxml_semestre=${periodo}&cxml_profesor=${profesor}`)
     } else {
-        return obtenerCursos(URL_BASE + `cxml_semestre=${periodo}&cxml_profesor=${profesor}`)
+        return obtenerCursos(url + `?cxml_semestre=${periodo}&cxml_profesor=${profesor}`)
     }
 }
 
-function buscarCurso(periodo, nombre, cors = false) {
-    if (cors) {
-        return obtenerCursos(URL_CORS + `cxml_semestre=${periodo}&cxml_nombre=${nombre}`)
+function buscarCurso(periodo, nombre, cors = false, url = undefined) {
+    if (!url) {
+        return obtenerCursos(URL_BASE + `?cxml_semestre=${periodo}&cxml_nombre=${nombre}`)
     } else {
-        return obtenerCursos(URL_BASE + `cxml_semestre=${periodo}&cxml_nombre=${nombre}`)
+        return obtenerCursos(url + `?cxml_semestre=${periodo}&cxml_nombre=${nombre}`)
     }
 }
 
