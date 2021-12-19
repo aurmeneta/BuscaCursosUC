@@ -15,7 +15,9 @@ const probarMuchosHorarios = buscacursos.buscarSigla(periodo, 'AQT0000')
 
 const probarSinHorario = buscacursos.buscarSigla(periodo, 'ING1001')
 
-Promise.all([obtenerCursos, buscarSigla, buscarProfesor, buscarCurso, probarMuchosHorarios, probarSinHorario]).then(resultados => {
+const buscarSiglaUrl = buscacursos.buscarSigla(periodo, 'mat1620', url = "https://buscacursos.aurmeneta.cl/")
+
+Promise.all([obtenerCursos, buscarSigla, buscarProfesor, buscarCurso, probarMuchosHorarios, probarSinHorario, buscarSiglaUrl]).then(resultados => {
   resultados.forEach(cursos => console.log(cursos.length))
 
   console.log(resultados[0][0])
