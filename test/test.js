@@ -1,21 +1,21 @@
-const buscacursos = require('../index.js')
+const { cursos, cupos, catalogo } = require('../index.js')
 // const { Curso, Modulo } = buscacursos
 
 const periodo = '2021-1'
 
-const obtenerCursos = buscacursos.obtenerCursos('https://buscacursos.uc.cl/?cxml_semestre=2020-2&cxml_sigla=mat1620')
+const obtenerCursos = cursos.obtenerCursos('https://buscacursos.uc.cl/?cxml_semestre=2020-2&cxml_sigla=mat1620')
 
-const buscarSigla = buscacursos.buscarSigla(periodo, 'mat1620')
+const buscarSigla = cursos.buscarSigla(periodo, 'mat1620')
 
-const buscarProfesor = buscacursos.buscarProfesor(periodo, 'marta garcia-huidobro')
+const buscarProfesor = cursos.buscarProfesor(periodo, 'marta garcia-huidobro')
 
-const buscarCurso = buscacursos.buscarCurso(periodo, 'calculo ii')
+const buscarCurso = cursos.buscarCurso(periodo, 'calculo ii')
 
-const probarMuchosHorarios = buscacursos.buscarSigla(periodo, 'AQT0000')
+const probarMuchosHorarios = cursos.buscarSigla(periodo, 'AQT0000')
 
-const probarSinHorario = buscacursos.buscarSigla(periodo, 'ING1001')
+const probarSinHorario = cursos.buscarSigla(periodo, 'ING1001')
 
-const buscarSiglaUrl = buscacursos.buscarSigla(periodo, 'mat1620', url = "https://buscacursos.aurmeneta.cl/")
+const buscarSiglaUrl = cursos.buscarSigla(periodo, 'mat1620', 'https://buscacursos.aurmeneta.cl/')
 
 Promise.all([obtenerCursos, buscarSigla, buscarProfesor, buscarCurso, probarMuchosHorarios, probarSinHorario, buscarSiglaUrl]).then(resultados => {
   resultados.forEach(cursos => console.log(cursos.length))
@@ -27,4 +27,10 @@ Promise.all([obtenerCursos, buscarSigla, buscarProfesor, buscarCurso, probarMuch
 
   console.log('\nSin Horario')
   console.log(resultados[5][0].horario)
+
+  console.log(resultados[6][0])
 })
+
+cupos.obtenerCupos('2021-2', 14275).then(resultado => console.log(resultado))
+
+catalogo.obtenerDetallesCurso('FIS1523').then(resultado => console.log(resultado))
