@@ -12,15 +12,24 @@ npm install --save @aurmeneta/buscacursos-uc
 Incluye el paquete en tu proyecto y realiza la búsqueda.
 
 ```javascript
-const buscaCursos = require("@aurmeneta/buscacursos-uc");
+const { cursos, catalogo, cupos } = require("@aurmeneta/buscacursos-uc");
 
-let porNombre = await buscaCursos.buscarCurso("2020-1", "Cálculo II");
-let porSigla = await buscaCursos.buscarSigla("2020-1", "MAT1620");
-let porProfesor = await buscaCursos.buscarProfesor("2020-1", "Torres");
+// Buscar cursos
+let porNombre = await cursos.buscarCurso("2020-1", "Cálculo II");
+let porSigla = await cursos.buscarSigla("2020-1", "MAT1620");
+let porProfesor = await cursos.buscarProfesor("2020-1", "Torres");
+
+// Obtener cupos desagregados de un curso
+let cupos = await cupos.obtenerCupos("2022-1", "MAT1620");
+
+// Obtener requisitos, restricciones y equivalencias de un curso
+let detallesCurso = await catalogo.obtenerDetallesCurso(14275)
+
 ```
 
 Cada búsqueda retorna un arreglo con los cursos encontrados.
 ```javascript
+// Búsqueda de cursos
 [
   {
     nrc: '14823',
@@ -39,15 +48,56 @@ Cada búsqueda retorna un arreglo con los cursos encontrados.
   },
   ...
 ]
+
+// Cupos
+{
+  nrc: 14275,
+  sigla: 'EYP2114-1',
+  vacantesDisponibles: 31,
+  cupos: [
+    {
+      escuela: 'Vacantes libres',
+      vacantesOfrecidas: 30,
+      vacantesOcupadas: 17,
+      vacantesDisponibles: 13
+    },
+    {
+      escuela: '04 - Ingeniería',
+      vacantesOfrecidas: 60,
+      vacantesOcupadas: 44,
+      vacantesDisponibles: 16
+    },
+    {
+      escuela: '09 - Lic. Generales (College)',
+      vacantesOfrecidas: 5,
+      vacantesOcupadas: 3,
+      vacantesDisponibles: 2
+    }
+  ]
+}
+// Detalles Curso
+{
+  prerrequistos: [
+    [ {sigla: "FIS0152", correquisito: true}, {sigla: "MAT1620", correquisito: false} ],
+    ...
+  ],
+  restricciones: '(Programa=Lic en Ing Cs de Datos)',
+  relacion: 'o',
+  equivalencias: [ 'FIS1522', 'ICM1003', 'IIQ1002', 'IIQ1003', 'IIQ103H' ]
+}
 ```
 # CORS
 
-Si la consulta se realiza directamente desde un navegador, esta será rechazada porque, por defecto, la respuesta no incluye los headers para CORS. Para inlcuirlos, se debe especificar como un tercer argumento en las funciones de búsqueda.
+Si la consulta se realiza directamente desde un navegador, esta será rechazada porque, por defecto, la respuesta no incluye los headers para CORS. Para inlcuirlos, se debe realizar un proxy de buscacursos o el cátalogo que las incluya e indicar el url como páramentro en las solicitudes.
 
 ```javascript
 const buscaCursos = require("@aurmeneta/buscacursos-uc");
 
-let porNombre = await buscaCursos.buscarCurso("2020-1", "Cálculo II", True);
-let porSigla = await buscaCursos.buscarSigla("2020-1", "MAT1620", True);
-let porProfesor = await buscaCursos.buscarProfesor("2020-1", "Torres", True);
+let porNombre = await buscaCursos.buscarCurso("2020-1", "Cálculo II", "https://buscacursos.proxy.example/");
+let porSigla = await buscaCursos.buscarSigla("2020-1", "MAT1620",  "https://buscacursos.proxy.example/");
+let porProfesor = await buscaCursos.buscarProfesor("2020-1", "Torres",  "https://buscacursos.proxy.example/");
+
+let cupos = await cupos.obtenerCupos("2022-1", "MAT1620", "https://buscacursos.proxy.example/");
+
+let detallesCurso = await catalogo.obtenerDetallesCurso(14275, "https://catalogo.proxy.example/");)
 ```
