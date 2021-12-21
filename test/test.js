@@ -1,4 +1,4 @@
-const { cursos } = require('../index.js')
+const { cursos, cupos } = require('../index.js')
 // const { Curso, Modulo } = buscacursos
 
 const periodo = '2021-1'
@@ -15,7 +15,7 @@ const probarMuchosHorarios = cursos.buscarSigla(periodo, 'AQT0000')
 
 const probarSinHorario = cursos.buscarSigla(periodo, 'ING1001')
 
-const buscarSiglaUrl = cursos.buscarSigla(periodo, 'mat1620', url = "https://buscacursos.aurmeneta.cl/")
+const buscarSiglaUrl = cursos.buscarSigla(periodo, 'mat1620', 'https://buscacursos.aurmeneta.cl/')
 
 Promise.all([obtenerCursos, buscarSigla, buscarProfesor, buscarCurso, probarMuchosHorarios, probarSinHorario, buscarSiglaUrl]).then(resultados => {
   resultados.forEach(cursos => console.log(cursos.length))
@@ -30,3 +30,5 @@ Promise.all([obtenerCursos, buscarSigla, buscarProfesor, buscarCurso, probarMuch
 
   console.log(resultados[6][0])
 })
+
+cupos.obtenerCupos('2021-2', 14275).then(resultado => console.log(resultado))
