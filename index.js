@@ -12,9 +12,9 @@ ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
 OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 */
 
-const Curso = require('./lib/Curso')
-const Modulo = require('./lib/Modulo')
-const ChoquesPermitidos = require('./lib/ChoquesPermitidos')
+const Curso = require('./lib/cursos/Curso')
+const Modulo = require('./lib/cursos/Modulo')
+const ChoquesPermitidos = require('./lib/cursos/ChoquesPermitidos')
 const cursos = require('./lib/cursos')
 
 // Exports antiguos
