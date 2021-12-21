@@ -33,4 +33,4 @@ Promise.all([obtenerCursos, buscarSigla, buscarProfesor, buscarCurso, probarMuch
 
 cupos.obtenerCupos('2021-2', 14275).then(resultado => console.log(resultado))
 
-catalogo.obtenerRequisitos('FIS1523').then(resultado => console.log(resultado))
+catalogo.obtenerDetallesCurso('FIS1523').then(resultado => console.log(resultado))
