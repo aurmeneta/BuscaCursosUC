@@ -17,6 +17,7 @@ const Modulo = require('./lib/cursos/Modulo')
 const ChoquesPermitidos = require('./lib/cursos/ChoquesPermitidos')
 const cursos = require('./lib/cursos')
 const cupos = require('./lib/cupos')
+const catalogo = require('./lib/catalogo')
 
 // Exports antiguos
 exports.obtenerCursos = cursos.obtenerCursos
@@ -30,3 +31,4 @@ exports.ChoquesPermitidos = ChoquesPermitidos
 // Nuevos exports
 exports.cursos = cursos
 exports.cupos = cupos
+exports.catalogo = catalogo
