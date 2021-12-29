@@ -2,3 +2,4 @@
 /.idea
 *.tgz
 .vscode
+.DS_Store
