@@ -1,6 +1,6 @@
 {
   "name": "@aurmeneta/buscacursos-uc",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "Obtener cursos desde buscacursos.uc.cl",
   "main": "index.js",
   "scripts": {
@@ -23,7 +23,7 @@
   "homepage": "https://github.com/aurmeneta/BuscaCursosUC#readme",
   "dependencies": {
     "cheerio": "^1.0.0-rc.10",
-    "node-fetch": "^2.6.1"
+    "node-fetch": "^3.1.1"
   },
   "devDependencies": {
     "eslint": "^7.12.1",
