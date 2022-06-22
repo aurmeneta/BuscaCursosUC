@@ -19,6 +19,9 @@ let porNombre = await cursos.buscarCurso("2020-1", "Cálculo II");
 let porSigla = await cursos.buscarSigla("2020-1", "MAT1620");
 let porProfesor = await cursos.buscarProfesor("2020-1", "Torres");
 
+// Obtener períodos disponibles
+let periodos = await cursos.obtenerPeriodos();
+
 // Obtener cupos desagregados de un curso
 let cupos = await cupos.obtenerCupos("2022-1", "MAT1620");
 
@@ -48,6 +51,9 @@ Cada búsqueda retorna un arreglo con los cursos encontrados.
   },
   ...
 ]
+
+// Periodos
+[ '2022-1', '2021-3', '2021-2', ... ]
 
 // Cupos
 {
@@ -96,6 +102,8 @@ const buscaCursos = require("@aurmeneta/buscacursos-uc");
 let porNombre = await buscaCursos.buscarCurso("2020-1", "Cálculo II", "https://buscacursos.proxy.example/");
 let porSigla = await buscaCursos.buscarSigla("2020-1", "MAT1620",  "https://buscacursos.proxy.example/");
 let porProfesor = await buscaCursos.buscarProfesor("2020-1", "Torres",  "https://buscacursos.proxy.example/");
+
+let periodos = await cursos.obtenerPeriodos("https://buscacursos.proxy.example/")
 
 let cupos = await cupos.obtenerCupos("2022-1", "MAT1620", "https://buscacursos.proxy.example/");
 
