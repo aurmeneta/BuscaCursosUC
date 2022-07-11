@@ -4,7 +4,7 @@
   "description": "Obtener cursos desde buscacursos.uc.cl",
   "main": "index.js",
   "scripts": {
-    "test": "node test/test.js",
+    "test": "jest",
     "lint": "eslint . --fix"
   },
   "repository": {
@@ -26,10 +26,16 @@
     "node-fetch": "^2.6.7"
   },
   "devDependencies": {
-    "eslint": "^7.12.1",
-    "eslint-config-standard": "^16.0.3",
+    "@faker-js/faker": "^7.3.0",
+    "eslint": "^8.19.0",
+    "eslint-config-standard": "^17.0.0",
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-promise": "^4.2.1"
+    "eslint-plugin-promise": "^6.0.0",
+    "jest": "^28.1.2",
+    "jest-light-runner": "^0.2.2"
+  },
+  "jest": {
+    "runner": "jest-light-runner"
   }
 }

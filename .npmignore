@@ -2,3 +2,7 @@
 .eslintrc.js
 *.tgz
 .github
+old
+coverage
+.idea
+.vscode
