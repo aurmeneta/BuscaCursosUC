@@ -1,5 +1,5 @@
 /* eslint-disable no-undef */
-const { catalogo } = require('../index')
+const { catalogo } = require('../../index')
 
 test('obtenerDetallesCurso entrega resultados correctos', async () => {
   const resultado = await catalogo.obtenerDetallesCurso('MAT1620')

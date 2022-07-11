@@ -1,5 +1,5 @@
 /* eslint-disable no-undef */
-const { cursos } = require('../index')
+const { cursos } = require('../../index')
 
 test('obtenerCurso obtiene datos correctamente', async () => {
   const curso = await cursos.obtenerCurso('2022-1', 12745)

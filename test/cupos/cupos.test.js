@@ -1,5 +1,5 @@
 /* eslint-disable no-undef */
-const { cupos } = require('../index')
+const { cupos } = require('../../index')
 
 test('obtener cupos retorna resultados no vacíos', async () => {
   const resultado = await cupos.obtenerCupos('2022-1', '14833')
