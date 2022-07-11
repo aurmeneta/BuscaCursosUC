@@ -26,6 +26,7 @@
     "node-fetch": "^2.6.7"
   },
   "devDependencies": {
+    "@faker-js/faker": "^7.3.0",
     "eslint": "^8.19.0",
     "eslint-config-standard": "^17.0.0",
     "eslint-plugin-import": "^2.26.0",
