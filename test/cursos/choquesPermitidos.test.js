@@ -51,6 +51,7 @@ test('si se permite el choque de una sigla con cualquiera, se permite', () => {
 
   choquesPermitidos.anadirChoque(sigla1, tipo1, '*', '*', true)
   expect(choquesPermitidos.evaluarChoque(sigla1, tipo1, sigla2, tipo2)).toBe(true)
+  expect(choquesPermitidos.evaluarChoque(sigla2, tipo2, sigla1, tipo1)).toBe(true)
 })
 
 test('parámetros invertidos no afecta búsqueda', () => {
@@ -73,6 +74,7 @@ test('párametros invertidos con "*" no afecta búsqueda', () => {
 
   choquesPermitidos.anadirChoque('*', '*', sigla1, tipo1, true)
   expect(choquesPermitidos.evaluarChoque(sigla2, tipo2, sigla1, tipo1)).toBe(true)
+  expect(choquesPermitidos.evaluarChoque(sigla1, tipo1, sigla2, tipo2)).toBe(true)
 })
 
 test('* solo permite choques del curso especificado', () => {
