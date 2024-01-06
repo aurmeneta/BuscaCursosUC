@@ -2,7 +2,7 @@
 const { cupos } = require('../../index')
 
 test('obtener cupos retorna resultados no vacíos', async () => {
-  const resultado = await cupos.obtenerCupos('2022-1', '14833')
+  const resultado = await cupos.obtenerCupos('2024-1', '14833')
 
   expect(resultado.nrc).toBe('14833')
   expect(resultado.sigla).toBe('MAT1620-1')
@@ -34,7 +34,7 @@ test('obtener cupos retorna cupos para distintas esculas, programas, concentraci
 })
 
 test('obtener cupos de curso sin reservas retorna resultados no vacíos', async () => {
-  const resultado = await cupos.obtenerCupos('2022-1', '12745')
+  const resultado = await cupos.obtenerCupos('2024-1', '12745')
 
   expect(resultado.nrc).toBe('12745')
   expect(resultado.sigla).toBe('DPT6500')
