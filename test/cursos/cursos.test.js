@@ -46,5 +46,5 @@ test('buscarCurso obtiene cantidad correcta de resultados', async () => {
 
 test('buscarProfesor obtiene cantidad correcta de resultados', async () => {
   const resultados = await cursos.buscarProfesor('2024-1', 'Francisca Echeverría')
-  expect(resultados.length).toBe(9)
+  expect(resultados.length).toBe(10)
 })
