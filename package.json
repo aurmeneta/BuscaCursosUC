@@ -21,9 +21,11 @@
     "url": "https://github.com/aurmeneta/BuscaCursosUC/issues"
   },
   "homepage": "https://github.com/aurmeneta/BuscaCursosUC#readme",
+  "engines": {
+    "node": ">=18.0.0"
+  },
   "dependencies": {
-    "cheerio": "1.0.0-rc.12",
-    "node-fetch": "^2.7.0"
+    "cheerio": "1.0.0-rc.12"
   },
   "devDependencies": {
     "@faker-js/faker": "^8.4.1",
